@@ -1,19 +1,10 @@
 import r from "raylib";
-
-const screenHeight = 720;
-const screenWidth = 1280;
+import { Screen } from "./screen.js";
 
 function main() {
-  let running = true;
-  r.InitWindow(screenWidth, screenHeight, "title");
-  r.SetTargetFPS(60);
+  let screen = new Screen();
 
-  while (running) {
-    r.BeginDrawing();
-    r.ClearBackground(r.BLUE);
-    r.DrawRectangle(screenWidth / 2, screenHeight / 2, 50, 50, r.BLACK);
-    r.EndDrawing();
-  }
+  screen.update();
 }
 
 main();
