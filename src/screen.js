@@ -1,6 +1,6 @@
 import r from "raylib";
 
-class Screen {
+export class Screen {
   constructor() {
     this.width = 1280;
     this.height = 720;
@@ -16,5 +16,3 @@ class Screen {
     }
   };
 }
-
-module.exports.Screen = Screen;
