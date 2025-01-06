@@ -27,7 +27,7 @@ class Grid {
 
   cellColors = () => {
     return [
-      r.DARKGRAY,
+      r.WHITE,
       r.GREEN,
       r.RED,
       r.ORANGE,
@@ -38,13 +38,15 @@ class Grid {
     ];
   };
 
-  draw = () => {
+  draw = (screenWidth, screenHeight) => {
     for (let i = 0; i < this.rows; i++) {
       for (let k = 0; k < this.columns; k++) {
         let cellValue = this.grid[i][k];
+        let columnSize = k * this.blockSize;
+        let rowSize = i * this.blockSize;
         r.DrawRectangle(
-          this.columns * this.blockSize + 1,
-          this.rows * this.blockSize + 1,
+          screenWidth / 2 - columnSize + this.blockSize * 4,
+          screenHeight / 14 + rowSize,
           this.blockSize - 1,
           this.blockSize - 1,
           this.colors[cellValue],
@@ -69,7 +71,7 @@ function main() {
   while (!r.WindowShouldClose()) {
     r.BeginDrawing();
     r.ClearBackground(r.BLACK);
-    grid.draw();
+    grid.draw(screenWidth, screenHeight);
     r.EndDrawing();
   }
   r.CloseWindow();
